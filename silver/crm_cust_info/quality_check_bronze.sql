@@ -7,7 +7,7 @@ FROM
 - Check for Nulls or Duplicates in the primary key
 - - CHECK: Unique and Not nullNo results
 - - EXPECTATION: No results
-- - FINDINGS: 6 non_unique records
+- - FINDINGS: 6 non_unique records ❌
  */
 SELECT
     cst_id,
@@ -42,7 +42,7 @@ WHERE
     - Check for unwanted spaces
     - - CHECK: spaces at start or end of data
     - - EXPECTATION: No results
-    - - FINDINGS:  Multiple columns have leading or trailing spaces
+    - - FINDINGS:  Multiple columns have leading or trailing spaces ❌
 */
 
 -- Example check with the firstname column --
@@ -59,10 +59,10 @@ GROUP BY cst_firstname;
     - Check for consistency of low cardinality columns
     - - CHECK: values within a specific range of options
     - - EXPECTATION: Results to match known list of option 
-    - - FINDINGS: There are some null columns alongside the options expected options
+    - - FINDINGS: There are some null columns alongside the options expected options ❌
     - - We need to:
     - - - Store data with clear meaningful values instead of abbreviations. For example: Male instead of M or Single instead of S
-    - - - Decide what to do with the null values. For this case; i use a default value of 'n/a'
+    - - - Decide what to do with the null values. For this case, use a default value of 'n/a'
 */
 
 SELECT DISTINCT 

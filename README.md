@@ -25,11 +25,11 @@ Developing a modern data warehouse using SQL Server to consolidate sales data, e
 
 #### Specifications
 
-**Data Sources**: Import data from two source systems (ERP and CRM) provided as CSV files.
-**Data Quality**: Cleanse and resolve data quality issues prior to analysis.
-**Integration**: Combine both sources into a single, user-friendly data model designed for analytical queries.
-**Scope**: Focus on the latest dataset only; historization of data is not required.
-**Documentation**: Provide clear documentation of the data model to support both business stakeholders and analytics teams.
+- **Data Sources**: Import data from two source systems (ERP and CRM) provided as CSV files.
+- **Data Quality**: Cleanse and resolve data quality issues prior to analysis.
+- **Integration**: Combine both sources into a single, user-friendly data model designed for analytical queries.
+- **Scope**: Focus on the latest dataset only; historization of data is not required.
+- **Documentation**: Provide clear documentation of the data model to support both business stakeholders and analytics teams.
 
 ---
 
@@ -57,7 +57,8 @@ The architecture of choice was the Medallion Architecture, split into three laye
 
 #### Technology Stack
 
-- VS Code(DBeaver Community for extra functionality that SQLTools could not provide)
+- VS Code
+- GitHub (ehm...yeah?)
 - SQL Server
 - Docker Desktop: To create a container for running sql server. I had some challenges with bulk inserting since the files were not accessible from my local   computer.
   I used azure sql edge with a container volume for data residence
@@ -71,7 +72,7 @@ The architecture of choice was the Medallion Architecture, split into three laye
       -v /Users/example/path/to/your/data:/var/opt/source \
       -d mcr.microsoft.com/azure-sql-edge:latest
     ```
-
+  
   To start the server, run
 
   ```BASH

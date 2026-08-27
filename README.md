@@ -48,26 +48,32 @@ These insights empower stakeholders with key business metrics, enabling strategi
 ### Data Architecture
 
 The architecture of choice was the Medallion Architecture, split into three layers: Bronze, Silver, and Gold layers.
+
 - **The Bronze Layer**: This layer sores raw data from the source systems in its original form. The data is ingested from CSV Files into SQL Server Database
 - **Silver Layer**: The data cleansing, standardization, and normalization processes are done in this layer to prepare data for analysis.
 - **Gold Layer**: This layer is where business-ready data resides. The data is modeled into a star schema as required for reporting and analytics.
 
-![Data warehouse architecture diagram](assets/warehouse-arch-diagram.png)
+![Data architecture diagram](assets/images/data_architecture_diagram.png)
 
 #### Technology Stack
 
 - VS Code(DBeaver Community for extra functionality that SQLTools could not provide)
 - SQL Server
-- Docker Desktop: To create a container for running sql server. I had some challenges with bulk inserting since the files were not accessible from my local computer.
-I used azure sql edge with a container volume for data residence
+- Docker Desktop: To create a container for running sql server. I had some challenges with bulk inserting since the files were not accessible from my local   computer.
+  I used azure sql edge with a container volume for data residence
+
+    ```BASH
+    docker volume create sqlserver_data
+
+    docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=<your_password>" \
+      -p 1433:1433 --name sqlserver \
+      -v sqlserver_data:/var/opt/mssql \
+      -v /Users/example/path/to/your/data:/var/opt/source \
+      -d mcr.microsoft.com/azure-sql-edge:latest
+    ```
+
+  To start the server, run
 
   ```BASH
-  docker volume create sqlserver_data
-
-  docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=<your_password>" \
-    -p 1433:1433 --name sqlserver \
-    -v sqlserver_data:/var/opt/mssql \
-    -v /Users/nasser/Play/warehouse-project/assets/data:/var/opt/source \
-    -d mcr.microsoft.com/azure-sql-edge:latest
-   ```
-
+  docker start sqlserver
+  ```

@@ -23,6 +23,14 @@ This project involves:
 
 Developing a modern data warehouse using SQL Server to consolidate sales data, enabling analytical reporting and informed decision-making.
 
+##### Business Rules
+
+- Business started in 1990-01-01
+- All sales data should always be positive; no negatives, zeros or nulls.
+  - If the sales figure is null, negative or 0, derive it using quantity and price
+  - If the price is 0 or null, derive it using sales and quantity
+  - If the price is negative, convert it to a positive value
+
 #### Specifications
 
 - **Data Sources**: Import data from two source systems (ERP and CRM) provided as CSV files.
@@ -57,8 +65,8 @@ The architecture of choice was the Medallion Architecture, split into three laye
 
 #### Technology Stack
 
+- MacOs
 - VS Code
-- GitHub (ehm...yeah?)
 - SQL Server
 - Docker Desktop: To create a container for running SQL Server. I had some challenges with bulk inserting since the files were not accessible from my local   computer.
   I used Azure SQL Edge with a container volume for data persistence
@@ -66,7 +74,7 @@ The architecture of choice was the Medallion Architecture, split into three laye
     ```BASH
     docker volume create sqlserver_data
 
-    docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=<your_password>" \
+    docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=Your_Passw0rd" \
       -p 1433:1433 --name sqlserver \
       -v sqlserver_data:/var/opt/mssql \
       -v /Users/example/path/to/your/data:/var/opt/source \

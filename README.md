@@ -1,4 +1,4 @@
-# Data warehousing project
+# Data warehousing project (on local server)
 
 This project demonstrates a comprehensive data warehousing and analytics solution, from building a data warehouse to generating actionable insights.
 
@@ -10,7 +10,7 @@ This project involves:
 
 - Data Architecture: Designing a Modern Data Warehouse Using Medallion Architecture Bronze, Silver, and Gold layers.
 - ETL Pipelines: Extracting, transforming, and loading data from source systems into the warehouse.
-- Data Modeling: Developing fact and dimension tables optimized for analytical queries.
+- Data Modelling: Developing fact and dimension tables optimised for analytical queries.
 - Analytics & Reporting: Creating SQL-based reports and dashboards for actionable insights.
 
 ---
@@ -26,7 +26,7 @@ Developing a modern data warehouse using SQL Server to consolidate sales data, e
 #### Specifications
 
 - **Data Sources**: Import data from two source systems (ERP and CRM) provided as CSV files.
-- **Data Quality**: Cleanse and resolve data quality issues prior to analysis.
+- **Data Quality**: Cleanse and resolve data quality issues before analysis.
 - **Integration**: Combine both sources into a single, user-friendly data model designed for analytical queries.
 - **Scope**: Focus on the latest dataset only; historization of data is not required.
 - **Documentation**: Provide clear documentation of the data model to support both business stakeholders and analytics teams.
@@ -49,9 +49,9 @@ These insights empower stakeholders with key business metrics, enabling strategi
 
 The architecture of choice was the Medallion Architecture, split into three layers: Bronze, Silver, and Gold layers.
 
-- **The Bronze Layer**: This layer sores raw data from the source systems in its original form. The data is ingested from CSV Files into SQL Server Database
-- **Silver Layer**: The data cleansing, standardization, and normalization processes are done in this layer to prepare data for analysis.
-- **Gold Layer**: This layer is where business-ready data resides. The data is modeled into a star schema as required for reporting and analytics.
+- **The Bronze Layer**: This layer stores raw data from the source systems in its original form. The data is ingested from CSV Files into a SQL Server Database
+- **Silver Layer**: The data cleansing, standardisation, and normalisation processes are done in this layer to prepare data for analysis.
+- **Gold Layer**: This layer is where business-ready data resides. The data is modelled into a star schema as required for reporting and analytics.
 
 ![Data architecture diagram](assets/images/data_architecture_diagram.png)
 
@@ -60,8 +60,8 @@ The architecture of choice was the Medallion Architecture, split into three laye
 - VS Code
 - GitHub (ehm...yeah?)
 - SQL Server
-- Docker Desktop: To create a container for running sql server. I had some challenges with bulk inserting since the files were not accessible from my local   computer.
-  I used azure sql edge with a container volume for data residence
+- Docker Desktop: To create a container for running SQL Server. I had some challenges with bulk inserting since the files were not accessible from my local   computer.
+  I used Azure SQL Edge with a container volume for data persistence
 
     ```BASH
     docker volume create sqlserver_data

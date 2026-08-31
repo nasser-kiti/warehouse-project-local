@@ -61,7 +61,7 @@ The architecture of choice was the Medallion Architecture, split into three laye
 - **Silver Layer**: The data cleansing, standardisation, and normalisation processes are done in this layer to prepare data for analysis.
 - **Gold Layer**: This layer is where business-ready data resides. The data is modelled into a star schema as required for reporting and analytics.
 
-![Data architecture diagram](assets/images/data_architecture_diagram.png)
+![Data architecture diagram](assets/docs/data_architecture_diagram.png)
 
 #### Technology Stack
 

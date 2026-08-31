@@ -239,7 +239,7 @@ The warehouse enforces the following business rules:
 - [Architecture Diagram](assets/docs/data_architecture_diagram.png): Visual representation of the medallion architecture
 - [Integration Diagram](silver/docs/data_integration_diagram.png): System integration and data source connections
 - Data Flow Diagrams: End-to-end data movement and transformation flow: [bronze layer](bronze/docs/bronze_dataflow_diagram.png), [silver layer](silver/docs/silver_data_flow_diagram.png), [gold layer](gold/docs/gold_data_flow_diagram.png)
-- [Data Model](gold/docs/star_schema_data_model_diagram.png)
+- [Data Model](gold/docs/gold/docs/star_schema_data_model_diagram.png.png)
 
 ---
 

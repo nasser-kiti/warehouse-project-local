@@ -1,3 +1,5 @@
+-- See checks_fact_sales to preview this view and check referential
+-- integrity against gold.dim_customers / gold.dim_products after creation.
 
 CREATE VIEW gold.fact_sales 
 AS
@@ -19,12 +21,3 @@ LEFT JOIN gold.dim_products as dp on s.sls_prd_key = dp.product_number
 LEFT JOIN gold.dim_customers as dc on s.sls_cust_id = dc.customer_id;
 
 GO
-
-SELECT * FROM gold.fact_sales;
-
--- Check if dimensions can be joined to fact table
-SELECT * FROM gold.fact_sales AS fs
-LEFT JOIN gold.dim_customers AS dc ON fs.customer_key = dc.customer_key
-LEFT JOIN gold.dim_products AS dp ON fs.product_key = dp.product_key
-WHERE dc.customer_key IS NULL
-OR dp.product_key IS NULL;

@@ -175,7 +175,7 @@ The ETL pipeline follows the Medallion Architecture pattern:
   - `dimension_customers` — Customer master data
   - `dimension_products` — Product master data
   - `fact_sales` — Transactional sales facts
-- **Files**: `gold/dimension_customers.sql`, `gold/dimension_products.sql`, `gold/fact_sales.sql`
+- **Files**: `gold/dimension_customers/`, `gold/dimension_products/`, `gold/fact_sales/`
 
 ---
 

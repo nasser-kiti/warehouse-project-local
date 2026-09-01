@@ -1,4 +1,4 @@
--- See dim_customer_checks.sql for the data-quality checks and gender-integration
+-- See checks_dim_customers.sql for the data-quality checks and gender-integration
 -- analysis that informed the logic in this view.
 
 CREATE VIEW

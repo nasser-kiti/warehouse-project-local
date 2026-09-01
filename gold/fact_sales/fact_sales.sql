@@ -1,4 +1,4 @@
--- See checks_fact_sales to preview this view and check referential
+-- See checks_fact_sales.sql to preview this view and check referential
 -- integrity against gold.dim_customers / gold.dim_products after creation.
 
 CREATE VIEW gold.fact_sales 

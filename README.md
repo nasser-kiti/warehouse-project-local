@@ -30,11 +30,11 @@ This project involves:
 
 #### Objective
 
-Developing a modern data warehouse using SQL Server to consolidate sales data, enabling analytical reporting and informed decision-making.
+Developing a modern data warehouse with SQL Server to consolidate sales data, enabling analytical reporting and informed decision-making.
 
 ##### Business Rules
 
-- Business started in 1990-01-01
+- Business started on 1990-01-01
 - All sales data should always be positive; no negatives, zeros or nulls.
   - If the sales figure is null, negative or 0, derive it using quantity and price
   - If the price is 0 or null, derive it using sales and quantity
@@ -128,7 +128,7 @@ docker start sqlserver
 5. **Transform Data to Silver Layer**
 
    ```sql
-   -- Execute silver/data_loading.sql to cleanse and standardize data
+   -- Execute silver/data_loading.sql to cleanse and standardise data
    ```
 
 6. **Build Gold Layer**
@@ -153,18 +153,18 @@ The ETL pipeline follows the Medallion Architecture pattern:
   - `bronze/ddl_bronze.sql` — Creates raw data tables
   - `bronze/data_loading.sql` — Loads CSV data into bronze tables
 
-### Silver Layer (Cleansing & Standardization)
+### Silver Layer (Cleansing & Standardisation)
 
-- **Purpose**: Clean, standardize, and normalize data for downstream analysis
+- **Purpose**: Clean, standardise, and normalise data for downstream analysis
 - **Process**: Apply business rules and data quality transformations
 - **Key Transformations**:
   - Handle null, negative, or zero sales values
-  - Standardize data types and formats
+  - Standardise data types and formats
   - Resolve duplicate and conflicting records
 - **Files**:
-  - `silver/ddl_silver.sql` — Creates cleansed data tables
-  - `silver/data_loading.sql` — Main transformation logic
-  - `silver/data_exploration.sql` — EDA and validation queries
+  - `silver/ddl_silver.sql`: Creates cleansed data tables
+  - `silver/data_loading.sql`: Main transformation logic
+  - `silver/data_exploration.sql`: EDA and validation queries
   - Subfolders for each data source (CRM and ERP)
 
 ### Gold Layer (Analytics-Ready)
@@ -172,9 +172,9 @@ The ETL pipeline follows the Medallion Architecture pattern:
 - **Purpose**: Create business-ready data models for reporting and analytics
 - **Schema**: Star schema with dimensions and facts
 - **Tables**:
-  - `dimension_customers` — Customer master data
-  - `dimension_products` — Product master data
-  - `fact_sales` — Transactional sales facts
+  - `dimension_customers`: Customer master data
+  - `dimension_products`: Product master data
+  - `fact_sales`: Transactional sales facts
 - **Files**: `gold/dimension_customers/`, `gold/dimension_products/`, `gold/fact_sales/`
 
 ---
@@ -192,8 +192,8 @@ Quality assurance is built into each layer of the pipeline:
 
 Quality check scripts are located in each data source subfolder:
 
-- `quality_check_bronze.sql` — Validates bronze data
-- `quality_check_silver.sql` — Validates silver transformations
+- `quality_check_bronze.sql`: Validates bronze data
+- `quality_check_silver.sql`: Validates silver transformations
 
 ---
 
@@ -219,8 +219,8 @@ The warehouse enforces the following business rules:
 
 - **Business Start Date**: 1990-01-01
 - **Sales Data Validation**: All sales amounts must be positive
-  - If sales figure is null, negative, or zero then derive its value from quantity × price
-  - If price is null or zero then derive it's value from sales ÷ quantity
+  - If the sales figure is null, negative, or zero, then derive its value from quantity × price
+  - If price is null or zero, then derive its value from sales ÷ quantity
   - If price is negative, convert it to a positive value
 - **Data Scope**: Only the latest dataset is loaded; historization is not required
 - **Time Dimension**: Focus on current-state analytics
@@ -251,7 +251,7 @@ If you encounter issues with bulk inserting CSV files:
 
 1. **Problem**: Files not accessible from the container
    - **Solution**: Mount the data directory as a volume (see setup above)
-   - Replace the path in the docker command with your actual data location
+   - Replace the path in the Docker command with your actual data location
 
 2. **Problem**: Container won't start
 
@@ -268,11 +268,6 @@ If you encounter issues with bulk inserting CSV files:
 
 3. **Problem**: Connection refused
    - Verify the container is running: `docker ps`
-   - Check port 1433 is available and not blocked
+   - Check that port 1433 is available and not blocked
    - Verify credentials match in connection string
 
----
-
-## Support
-
-For questions or issues, refer to the documentation files or review the SQL scripts in their respective folders.

@@ -150,8 +150,8 @@ The ETL pipeline follows the Medallion Architecture pattern:
 - **Purpose**: Store raw data from source systems in its original form
 - **Process**: CSV files are bulk-loaded into bronze tables without transformation
 - **Files**:
-  - `bronze/ddl_bronze.sql` — Creates raw data tables
-  - `bronze/data_loading.sql` — Loads CSV data into bronze tables
+  - `bronze/ddl_bronze.sql`: Creates raw data tables
+  - `bronze/data_loading.sql`: Loads CSV data into bronze tables
 
 ### Silver Layer (Cleansing & Standardisation)
 
